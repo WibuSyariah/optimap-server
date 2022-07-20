@@ -24,8 +24,12 @@ const errorHandler = (error, req, res, next) => {
     res.status(400).json({
       message: "Email already used",
     });
+  } else if (error.name === "TypeError") {
+    res.status(400).json({
+      message: "Please upload a photo",
+    });
   } else {
-    // console.log(error);
+    console.log(error);
     res.status(500).json({
       message: "Internal Server Error",
     });

@@ -14,7 +14,6 @@ class UserController {
 
       res.status(201).json("User registered successfully");
     } catch (error) {
-      console.log(error);
       next(error);
     }
   }
@@ -39,13 +38,13 @@ class UserController {
         throw { statusCode: 401 };
       }
 
-      const accessToken = payloadToToken({
+      const access_token = payloadToToken({
         id: user.id,
         email: user.email,
       });
 
       res.status(200).json({
-        accessToken,
+        access_token,
       });
     } catch (error) {
       next(error);

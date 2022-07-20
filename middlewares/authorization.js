@@ -3,8 +3,8 @@ const { User } = require("../models");
 
 const authorization = async (req, res, next) => {
   try {
-    const { accessToken } = req.headers;
-    const payload = tokenToPayload(accessToken);
+    const { access_token } = req.headers;
+    const payload = tokenToPayload(access_token);
     const userFound = await User.findByPk(payload.id);
 
     if (!userFound) {
