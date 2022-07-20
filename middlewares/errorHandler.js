@@ -29,7 +29,6 @@ const errorHandler = (error, req, res, next) => {
       message: "Please upload a photo",
     });
   } else {
-    console.log(error);
     res.status(500).json({
       message: "Internal Server Error",
     });
