@@ -12,12 +12,7 @@ router.post(
   ProfileController.create
 );
 router.get("/list", ProfileController.getAll);
-router.put(
-  "/:UserId",
-  authorization,
-  upload.single("photo"),
-  ProfileController.update
-);
+router.put("/:UserId", upload.single("photo"), ProfileController.update);
 router.delete("/:UserId", ProfileController.delete);
 
 module.exports = router;
