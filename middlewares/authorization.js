@@ -8,7 +8,7 @@ const authorization = async (req, res, next) => {
     const userFound = await User.findByPk(payload.id);
 
     if (!userFound) {
-      throw { statusCode: 401 };
+      throw { statusCode: 403 };
     } else {
       req.user = {
         id: userFound.id,
