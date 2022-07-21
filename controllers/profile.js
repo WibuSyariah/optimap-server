@@ -35,7 +35,9 @@ class ProfileController {
         UserId: id,
       });
 
-      res.status(201).json("Profile Created");
+      res.status(201).json({
+        message: "Profile Created",
+      });
     } catch (error) {
       next(error);
     }
@@ -89,7 +91,9 @@ class ProfileController {
         photo: photoPath,
       });
 
-      res.status(200).json("Profile Updated");
+      res.status(200).json({
+        message: "Profile Updated",
+      });
     } catch (error) {
       next(error);
     }
@@ -112,7 +116,9 @@ class ProfileController {
       fs.unlinkSync(profile.photo);
       await profile.destroy();
 
-      res.status(200).json("User Profile Deleted");
+      res.status(200).json({
+        message: "Profile Deleted",
+      });
     } catch (error) {
       next(error);
     }

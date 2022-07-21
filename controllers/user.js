@@ -12,7 +12,9 @@ class UserController {
         password,
       });
 
-      res.status(201).json("User registered successfully");
+      res.status(201).json({
+        message: "User Registered",
+      });
     } catch (error) {
       next(error);
     }
