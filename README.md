@@ -1,6 +1,6 @@
 # Optimap Server
 
-Optimap Server is a REST API Based Server created for managing Users and Profiles data easily
+Optimap Server is a Node.js REST API Based Server created for managing Users and Profiles data easily
 
 ## System Requirements
 
@@ -45,4 +45,4 @@ then the server will start, and ready to use.
 
 ## Endpoints
 
-Endpoint list is on API-Documentation.md file
+Endpoint list is at API-Documentation.md file
