@@ -190,7 +190,7 @@ _200 - OK_
 ```json
 {
   "nik": String,
-  "fullname": String,
+  "fullName": String,
   "gender": String,
   "bloodType": String,
   "photo": File
