@@ -1,5 +1,6 @@
 const { User, Profile } = require("../models");
 const fs = require("fs");
+const BASE_URL = "http://localhost:3000/";
 
 class ProfileController {
   static async getOne(req, res, next) {
@@ -25,13 +26,14 @@ class ProfileController {
       const { nik, fullName, gender, bloodType } = req.body;
 
       const photoPath = req.file.path;
+      const photoUrl = BASE_URL + photoPath;
 
       await Profile.create({
         nik,
         fullName,
         gender,
         bloodType,
-        photo: photoPath,
+        photo: photoUrl,
         UserId: id,
       });
 
@@ -80,15 +82,17 @@ class ProfileController {
         throw { statusCode: 404 };
       }
 
-      fs.unlinkSync(profile.photo);
+      const oldPhotoPath = profile.photo.split(BASE_URL)[1];
+      fs.unlinkSync(oldPhotoPath);
       const photoPath = req.file.path;
+      const photoUrl = BASE_URL + photoPath;
 
       await profile.update({
         nik,
         fullName,
         gender,
         bloodType,
-        photo: photoPath,
+        photo: photoUrl,
       });
 
       res.status(200).json({
@@ -113,7 +117,9 @@ class ProfileController {
         throw { statusCode: 404 };
       }
 
-      fs.unlinkSync(profile.photo);
+      const photoPath = profile.photo.split(BASE_URL)[1];
+
+      fs.unlinkSync(photoPath);
       await profile.destroy();
 
       res.status(200).json({
