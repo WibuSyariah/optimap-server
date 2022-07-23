@@ -219,11 +219,11 @@ _400 - Bad Request_
 }
 ```
 
-### Endpoint: `GET /profiles/list`
+### Endpoint: `GET /profiles/list?page=`
 
 ### Description
 
-- Get the List of Profiles
+- Get the List of Profiles with Pagination
 
 #### Response
 
