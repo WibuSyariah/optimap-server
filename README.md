@@ -32,6 +32,7 @@ it should create a .env file and fill it with the following content, the value i
 
     PORT=
     SECRET_KEY=
+    BASE_URL=
 
 then run the following command
 

@@ -1,6 +1,6 @@
 const { User, Profile } = require("../models");
 const fs = require("fs");
-const BASE_URL = "https://optimap-server.herokuapp.com/";
+const BASE_URL = process.env.BASE_URL;
 
 class ProfileController {
   static async getOne(req, res, next) {
